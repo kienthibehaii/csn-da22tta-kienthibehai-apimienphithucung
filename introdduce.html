@@ -1,0 +1,291 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPort</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" href="Hinhanh/icon11.png" class="img-fluid rounded-circle" type="image/x-icon" width="50px">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        .hover-bg-primary:hover {
+          background-color: #00fe11 !important;
+        }
+        .hover-text-light:hover {
+          color: #f8f9fa !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh điều hướng -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid bg-black_50 text-white p-1 tabs">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="navbar-brand" href="tranhchu.html"><img src="Hinhanh/Pet6.png" alt="Logo không phông" style="width: 150px;"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <h6><li class="nav-item"><a class="nav-link" href="tranhchu.html">Home</a></li></h6>
+                
+                    <h6><li class="nav-item"><a class="nav-link" href="introdduce.html">Random images</a></li></h6>
+
+                    <h6><li class="nav-item"><a class="nav-link" href="breeds.html">Dog breed</a></li></h6>
+                    <li>
+                        <a class="icon-link" href="cart.html">
+                           
+                            <i class="bi bi-bag-heart-fill" style="font-size: 20px; color: rgb(255, 140, 0);"></i>
+                            <span id="cart-count" class="badge bg-danger rounded-pill" 
+                                style="position: absolute; transform: translate(50%, -50%); display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!--
+    
+     Nút quay lại đầu trang -->
+         <!-- Nội dung Giới thiệu -->
+    <h1 class="text-center mb-3" style="color: #000000">Random images</h1>
+    
+    <div class="container mt-0">
+        <div class="row mt-5">
+            <div class="col-3">
+                <!-- Phần tìm kiếm giống chó -->
+                <h3>Search Dog Breeds</h3>
+                <select id="breed-select" class="form-control">
+                    <option value="">Select a breed</option>
+                    <!-- Options will be populated dynamically -->
+                </select>   
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Phần hiển thị hình ảnh chó ngẫu nhiên -->
+                <h3>Image</h3>
+                <div class="border p-3 bg-white" style="height: 400px; width: 500px; display: flex; align-items: center; justify-content: center;">
+                    <img id="random-dog-image" src="Hinhanh/default-dog.jpg" alt="Random Dog" class="img-fluid rounded" style="height: 400px; width: 500px;">
+                </div>
+                <div class="mt-3">
+                    <button class="btn btn-success" id="like-dog-btn"><i class="bi bi-heart"></i></button>
+                    <button class="btn btn-secondary" id="prev-dog-btn"><i class="bi bi-caret-left"></i></button>
+                    <button class="btn btn-secondary" id="next-dog-btn"><i class="bi bi-caret-right"></i></button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- Phần hiển thị danh sách yêu thích -->
+                <h3>Favorite Dogs</h3>
+                <div class="border p-3  bg-white" style="height: 400px; overflow-y: auto;">
+                    <div id="favorite-dogs" class="d-flex flex-wrap"></div>
+                </div>
+                <div class="mt-3">
+                    <button class="btn btn-secondary" id="view-list-btn"><i class="bi bi-grid"></i></button>
+                    <button class="btn btn-secondary" id="view-grid-btn"><i class="bi bi-view-list"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <!-- Nút quay lại đầu trang -->
+    <a id="back-to-top" href="#top" class="btn btn-success" style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000; color: rgb(250, 255, 250);">
+        <i class="bi bi-arrow-bar-up" style="font-size: 20px;"></i>
+    </a>
+    <a id="back-to-top" href="introdduce.html" class="btn btn-success" style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000; color: rgb(250, 255, 250);">
+        <i class="bi bi-arrow-bar-up" style="font-size: 20px; "></i>
+    </a>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+     document.addEventListener("DOMContentLoaded", () => {
+    const randomDogImage = document.getElementById("random-dog-image");
+    const likeDogBtn = document.getElementById("like-dog-btn");
+    const prevDogBtn = document.getElementById("prev-dog-btn");
+    const nextDogBtn = document.getElementById("next-dog-btn");
+    const favoriteDogs = document.getElementById("favorite-dogs");
+    const viewListBtn = document.getElementById("view-list-btn");
+    const viewGridBtn = document.getElementById("view-grid-btn");
+    const breedSelect = document.getElementById("breed-select");
+    const prevBreedBtn = document.getElementById("prev-breed-btn");
+    const nextBreedBtn = document.getElementById("next-breed-btn");
+
+    let favoriteDogsList = JSON.parse(localStorage.getItem('favoriteDogsList')) || [];
+    let breedList = [];
+    let currentBreedIndex = 0;
+    let currentFavoriteIndex = 0;
+    let randomDogImages = [];
+
+    // Hàm lấy ảnh chó ngẫu nhiên
+    function fetchRandomDogImage() {
+        fetch("https://dog.ceo/api/breeds/image/random")
+            .then(response => response.json())
+            .then(data => {
+                randomDogImage.src = data.message; // Cập nhật ảnh
+                randomDogImages.push(data.message);
+                currentFavoriteIndex = randomDogImages.length - 1;
+            })
+            .catch(error => {
+                console.error("Lỗi khi gọi API:", error);
+                randomDogImage.src = "Hinhanh/default-dog.jpg"; // Hiển thị ảnh mặc định khi lỗi
+            });
+    }
+
+    // Hàm thêm ảnh vào danh sách yêu thích
+    function likeDogImage() {
+        const imgSrc = randomDogImage.src;
+        if (!favoriteDogsList.includes(imgSrc)) {
+            favoriteDogsList.push(imgSrc);
+            localStorage.setItem('favoriteDogsList', JSON.stringify(favoriteDogsList));
+            const imgElement = document.createElement("img");
+            imgElement.src = imgSrc;
+            imgElement.className = "img-fluid rounded m-1";
+            imgElement.style.width = "157px";
+            imgElement.style.height = "155px";
+            favoriteDogs.appendChild(imgElement);
+        }
+        fetchRandomDogImage(); // Fetch a new random dog image
+    }
+
+    // Hàm hiển thị danh sách yêu thích
+    function displayFavoriteList() {
+        favoriteDogs.innerHTML = "";
+        favoriteDogsList.forEach(imgSrc => {
+            const imgElement = document.createElement("img");
+            imgElement.src = imgSrc;
+            imgElement.className = "img-fluid rounded m-1";
+            imgElement.style.width = "157px";
+            imgElement.style.height = "155px";
+            favoriteDogs.appendChild(imgElement);
+        });
+        favoriteDogs.style.display = "flex";
+    }
+
+    // Hàm hiển thị tất cả ảnh yêu thích
+    function displayFavoriteGrid() {
+        favoriteDogs.innerHTML = "";
+        favoriteDogsList.forEach(imgSrc => {
+            const imgElement = document.createElement("img");
+            imgElement.src = imgSrc;
+            imgElement.className = "img-fluid rounded m-1";
+            imgElement.style.width = "100%";
+            imgElement.style.height = "";
+            favoriteDogs.appendChild(imgElement);
+        });
+        favoriteDogs.style.display = "block";
+    }
+
+    // Hàm tải danh sách giống chó
+    function loadBreedList() {
+        fetch("https://dog.ceo/api/breeds/list/all")
+            .then(response => response.json())
+            .then(data => {
+                const breeds = Object.keys(data.message);
+                breeds.forEach(breed => {
+                    const option = document.createElement("option");
+                    option.value = breed;
+                    option.textContent = breed;
+                    breedSelect.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error("Lỗi khi gọi API:", error);
+            });
+    }
+
+    // Hàm tìm kiếm giống chó
+    function searchDogBreeds(query) {
+        fetch(`https://dog.ceo/api/breed/${query}/images`)
+            .then(response => response.json())
+            .then(data => {
+                breedList = data.message;
+                currentBreedIndex = 0;
+                displayBreedImages();
+            })
+            .catch(error => {
+                console.error("Lỗi khi gọi API:", error);
+            });
+    }
+
+    // Hàm hiển thị ảnh giống chó
+    function displayBreedImages() {
+        if (breedList.length > 0) {
+            randomDogImage.src = breedList[currentBreedIndex];
+        } else {
+            randomDogImage.src = "";
+        }
+    }
+
+    // Hàm hiển thị ảnh ngẫu nhiên trước đó
+    function showPreviousRandomDogImage() {
+        if (currentFavoriteIndex > 0) {
+            currentFavoriteIndex--;
+            randomDogImage.src = randomDogImages[currentFavoriteIndex];
+        }
+    }
+
+    // Hàm hiển thị ảnh ngẫu nhiên tiếp theo
+    function showNextRandomDogImage() {
+        if (currentFavoriteIndex < randomDogImages.length - 1) {
+            currentFavoriteIndex++;
+            randomDogImage.src = randomDogImages[currentFavoriteIndex];
+        }
+    }
+
+    // Gọi API khi tải trang
+    fetchRandomDogImage();
+    loadBreedList();
+    displayFavoriteList(); // Hiển thị danh sách yêu thích khi tải trang
+
+    // Gọi API khi nhấn nút
+    likeDogBtn.addEventListener("click", likeDogImage);
+    prevDogBtn.addEventListener("click", showPreviousRandomDogImage);
+    nextDogBtn.addEventListener("click", showNextRandomDogImage);
+    viewListBtn.addEventListener("click", displayFavoriteList);
+    viewGridBtn.addEventListener("click", displayFavoriteGrid);
+
+    // Tìm kiếm giống chó khi chọn từ danh sách
+    breedSelect.addEventListener("change", (e) => {
+        const query = e.target.value;
+        if (query) {
+            searchDogBreeds(query);
+        } else {
+            randomDogImage.src = "";
+        }
+    });
+
+    // Chuyển ảnh giống chó
+    prevBreedBtn.addEventListener("click", () => {
+        if (currentBreedIndex > 0) {
+            currentBreedIndex--;
+            displayBreedImages();
+        }
+    });
+
+    nextBreedBtn.addEventListener("click", () => {
+        if (currentBreedIndex < breedList.length - 1) {
+            currentBreedIndex++;
+            displayBreedImages();
+        }
+    });
+    });
+    </script>
+    <a id="back-to-top" href="#top" class="btn btn-success" style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000; color: rgb(250, 255, 250);">
+        <i class="bi bi-arrow-bar-up" style="font-size: 20px;"></i>
+    </a>
+    <a id="back-to-top" href="introdduce.html" class="btn btn-success" style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000; color: rgb(250, 255, 250);">
+        <i class="bi bi-arrow-bar-up" style="font-size: 20px; "></i>
+    </a>
+    <!-- Footer -->
+    <br>
+    <footer class="bg  text-center p-3">
+        <p>CSN - API miễn phí về thú cưng - 110122218 - Kiên Thị Bé Hai - DA22TTA</p>
+    </footer>
+    <script src="scipt1.js"></script>
+    
+</body>
+</html>

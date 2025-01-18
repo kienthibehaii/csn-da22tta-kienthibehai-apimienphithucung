@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.active-link {
+    color: blue !important; /* Màu khi liên kết được nhấn */
+}
+
+div #navbarNav ul li a {
+    color: #f5f0f0;
+}
+body .navbar{
+    background-color:#0bb8c1;
+    color: #ffffff;
+}
+body {
+    background-color:#e0f7f9;
+    color: #333333;
+}
+.dog-image {
+    width: 100%;
+    height: 300px; /* Chiều cao cố định */
+    object-fit: cover; /* Cắt ảnh nếu cần để phù hợp */
+    border-radius: 8px; /* Bo góc nếu muốn */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+.icon {  
+    font-size: 50px;  
+    cursor: pointer;  
+    transition: color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */  
+}  
+
+.icon.active {  
+    color: red; /* Màu khi nhấp chuột */  
+}  
+
+/* Đảm bảo tất cả các thẻ card có chiều cao bằng nhau */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Thêm lề dưới cho card */
+.card-body {
+    flex-grow: 1;
+}
+
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card p {
+    margin: 0;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   /* Chiều cao cố định để các thẻ card đồng nhất */
+}
+
+.card-body h5 {
+    text-align: center; /* Căn giữa tiêu đề */
+    margin-bottom: 10px;
+}
+
+.card-body button {
+    margin-top: auto; /* Đẩy nút xuống dưới cùng */
+    align-self: center; /* Căn giữa nút trong thẻ */
+}
+
+/**/
+/* Tổng quan giỏ hàng */
+#cart-container{
+    max-width: 400px;
+}
+.cart-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Danh sách sản phẩm trong giỏ */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+
+.cart-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+
+.cart-item-info span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Nút số lượng */
+.quantity-buttons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.quantity-buttons button {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quantity-buttons button:hover {
+    background-color: #0056b3;
+}
+
+.quantity-display {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    margin: 0 10px;
+}
+
+/* Nút Remove */
+.cart-item button.btn-danger {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.cart-item button.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Tổng giá */
+.cart-total {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.cart-total span {
+    color: #007bff;
+}
+/* Giỏ hàng */
+#cart-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+
+
+#cart-items .list-group-item {
+    padding: 0px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#cart-items button {
+    font-size: 0.9rem;
+}
+#cart-count {
+    display: inline-block; /* Hiển thị số lượng */
+    margin-left: 5px;
+}
+/* Định dạng cho footer */
+footer {
+    background: #41b3a3;
+    color: white; /* Màu chữ trắng */
+    text-align: center; /* Canh giữa nội dung */
+    padding: 15px; /* Khoảng cách bên trong */
+    font-family: Arial, sans-serif; /* Font chữ */
+    font-size: 14px; /* Cỡ chữ */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng nhẹ */
+    color:#333
+  }
+  
+  /* Định dạng cho đoạn văn bên trong footer */
+  footer p {
+    margin: 0; /* Loại bỏ khoảng cách mặc định */
+  }
+.custom-frame {
+    border: 2px solid #ccc;
+    background-color: #f9f9f9;
+}

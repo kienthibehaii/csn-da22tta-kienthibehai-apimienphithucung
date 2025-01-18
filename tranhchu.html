@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPort</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel = "icon" href = "Hinhanh/icon11.png" class="img-fluid rounded-circle" type = "Hinhanh/x-icon" width: 50px>
+    <link rel="styleSheet" type="text/css" href="style.css">
+   
+</head>
+<body>
+
+    <!-- Thanh điều hướng -->
+    <nav class="navbar navbar-expand-lg navbar-light  " >
+        <div class="container-fluid bg-black_50 text-white p-1 tabs" >
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="navbar-brand" href="tranhchu.html"><img src="Hinhanh/Pet6.png" alt="Logo không phông"  style="width: 150px;"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav" >
+                <ul class="navbar-nav ms-auto" >
+                    <h6><li class="nav-item"><a class="nav-link" href="tranhchu.html">Home</a></li></h6>
+                    <h6><li class="nav-item"><a class="nav-link" href="introdduce.html">Random images </a></li></h6>
+                    <h6><li class="nav-item"><a class="nav-link" href="breeds.html">Dog breed </a></li></h6>
+                    <li>
+                        <a class="icon-link" href="cart.html">
+                           
+                            <i class="bi bi-bag-heart-fill" style="font-size: 20px; color: rgb(255, 140, 0);"></i>
+                            <span id="cart-count" class="badge bg-danger rounded-pill" 
+                                style="position: absolute; transform: translate(50%, -50%); display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid my-0">
+        <div id="petCarousel" class="carousel slide" data-bs-ride="carousel">
+          <!-- Indicators -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#petCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#petCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#petCarousel" data-bs-slide-to="2"></button>
+          </div>
+    
+          <!-- Slideshow Content -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="Hinhanh/slideshow7.jpg" class="d-block w-100" alt="Cute Dog">
+              <div class="carousel-caption">
+               
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="Hinhanh/slideshow5.jpg" class="d-block w-100" alt="Adorable Cat">
+              <div class="carousel-caption">
+               
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="Hinhanh/slideshow6.jpg" class="d-block w-100" alt="Fluffy Rabbit">
+              <div class="carousel-caption">
+              </div>
+            </div>
+          </div>
+    
+          <!-- Navigation Arrows -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#petCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#petCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+
+    
+    <!-- Nội dung Giới thiệu -->
+    <div class="container mt-5">
+      <h2 class="text-left mb-4" style="color: #000000">Introduce</h2>
+   
+        <div class="row">
+          <div class="col-md-6">
+              <p class="text-justify">
+                  PetPort is a modern API platform that provides rich and reliable veterinary data insights. 
+                  With a mission to connect veterinary enthusiasts, service providers and research support organizations.
+              </p>
+              
+                  <p>Diverse data: Information about breeds, characteristics and images of pets.</p>
+                  <p>Advanced search: Filter by size, age, species.</p>
+              <p>
+                  Bring ideas closer to the pet-loving community. Let's join PetPort to spread love to all pets!
+              </p>
+          </div>
+      
+      <div  class="col-md-6">
+        <img src="Hinhanh/shaking-hands8.jpg" style="height: 350px; width: 550px;">
+      </div>
+  </div>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Random Photos</h5>
+                    <p class="card-text">View adorable random moments of dogs. Bringing joy and relaxation.</p>
+                    <br>
+                    <a href="introdduce.html" class="btn btn-success ">See Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Dog Breeds</h5>
+                    <p class="card-text">Discover information about dog breeds, their traits, personalities, and care needs.</p>
+                    <br>
+                    <a href="breeds.html" class="btn btn-success ">See Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Adoption</h5>
+                    <p class="card-text">Connect with dogs waiting for a loving home. Bring one home today!</p>
+                    <br>
+                    <a href="cart.html" class="btn btn-success ">See Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  <!-- Nút quay lại đầu trang -->
+  <a id="back-to-top" href="#top" class="btn btn-success" style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000; color: rgb(250, 255, 250);">
+      <i class="bi bi-arrow-bar-up" style="font-size: 20px;"></i>
+  </a>
+  <a id="back-to-top" href="introdduce.html" class="btn btn-success" style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000; color: rgb(250, 255, 250);">
+      <i class="bi bi-arrow-bar-up" style="font-size: 20px; "></i>
+  </a>
+   <a id="back-to-top" href="tranhchu.html" class="btn btn-cuccess" style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000;">
+      <i class="bi bi-arrow-bar-up" style="font-size: 20px;"></i>
+  </a>
+    <!-- Footer -->
+     <br>
+    <footer class="bg text-center p-3">
+        <p>CSN - API miễn phí về thú cưng - 110122218 - Kiên Thị Bé Hai - DA22TTA</p>
+    </footer>
+    <script src="scipt1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

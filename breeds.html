@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPort</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel = "icon" href = "Hinhanh/icon11.png" class="img-fluid rounded-circle" type = "Hinhanh/x-icon" width: 50px>
+    <link rel="styleSheet" type="text/css" href="style.css">
+    <style>
+        .hover-bg-primary:hover {
+          background-color: #41b3a3 !important;
+        }
+        .hover-text-light:hover {
+          color: #f8f9fa !important;
+        }
+      </style>
+</head>
+<body>
+
+    <!-- Thanh điều hướng -->
+    <nav class="navbar navbar-expand-lg navbar-light  " >
+        <div class="container-fluid bg-black_50 text-white p-1 tabs" >
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="navbar-brand" href="tranhchu.html"><img src="Hinhanh/Pet6.png" alt="Logo không phông"  style="width: 150px;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav" >
+                <ul class="navbar-nav ms-auto" >
+                    <h6><li class="nav-item"><a class="nav-link" href="tranhchu.html">Home</a></li></h6>
+                    <h6><li class="nav-item"><a class="nav-link" href="introdduce.html">Random images </a></li></h6>
+                    
+                    <h6><li class="nav-item"><a class="nav-link" href="breeds.html">Dog breed</a></li></h6>
+                    <li>
+                        <a class="icon-link" href="cart.html">
+                           
+                            <i class="bi bi-bag-heart-fill" style="font-size: 20px; color: rgb(255, 140, 0);"></i>
+                            <span id="cart-count" class="badge bg-danger rounded-pill" 
+                                style="position: absolute; transform: translate(50%, -50%); display: none;">0</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                    <form class="d-flex ms-3">
+                        <input class="form-control me-2" type="search" placeholder="Search Breeds" id="search-input">
+                        <button class="btn btn-outline-light" type="button" id="search-btn">Search</button>
+                    </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+        <h1 class="text-center">Find Your Perfect Pet</h1>
+        <div class="row mt-4">
+            <div class="col-12">
+                <h5>Filter by:</h5>
+                <div class="d-flex flex-wrap">
+                    <div class="mb-3 me-3">
+                        <label for="breed-filter" class="form-label">Breed</label>
+                        <select id="breed-filter" class="form-select">
+                            <option value="">Select breed</option>
+                            <!-- Options will be dynamically added here -->
+                        </select>
+                    </div>
+                    <div class="mb-3 me-3">
+                        <label for="age-filter" class="form-label">Age</label>
+                        <input type="number" id="age-filter" class="form-control" placeholder="Enter age">
+                    </div>
+                    <div class="mb-3 me-3">
+                        <label for="height-filter" class="form-label">Height (cm)</label>
+                        <input type="number" id="height-filter" class="form-control" placeholder="Enter height">
+                    </div>
+                    <div class="mb-3 me-3">
+                        <label for="weight-filter" class="form-label">Weight (kg)</label>
+                        <input type="number" id="weight-filter" class="form-control" placeholder="Enter weight">
+                    </div>
+                    <div class="mb-3">
+                        <lable></lable>
+                        <button class="btn btn-success " id="apply-filters">Apply Filters</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            
+            <div id="breeds-list" class="row mt-4" >
+                <!-- Danh sách các giống chó sẽ được thêm vào đây -->
+            </div>
+        </div>
+    </div>
+    
+    
+    <a id="back-to-top" href="breeds.html" class="btn btn-success" style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000; color: rgb(250, 255, 250);">
+        <i class="bi bi-arrow-bar-up" style="font-size: 20px; "></i>
+    </a>
+    
+     <!-- Footer -->
+    <div>
+     <footer class="bg  text-center p-3">
+        <p>CSN - API miễn phí về thú cưng - 110122218 - Kiên Thị Bé Hai - DA22TTA</p>
+    </footer>
+    </div>
+    <script src="script1.js"></script>
+   
+</body>
+</html>
